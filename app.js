@@ -23,18 +23,17 @@ app.get('/', (req, res) => {
 });
 
 app.post('/send', (req, res) => {
+  console.log(req.body);
   const output = `
-  <p>You have a new request</p>
-  <h3>Contact details</h3>
-  <ul>
+   <p>You have a new request for a recipe</p>
+   <h3>Recipe details</h3>
+   <ul>
     <li>Name: ${req.body.name}</li>
-    <li>Company: ${req.body.company}</li>
     <li>Email: ${req.body.email}</li>
-    <li>Phone: ${req.body.phone}</li>
-  </ul>
-  <h3>Message</h3>
-  <p>${req.body.message}</p>
- `;
+   </ul>
+   <h3>Message</h3>
+   <p>${req.body.message}</p>
+  `;
 });
 
 const transporter = nodemailer.createTransport({
@@ -58,8 +57,8 @@ const transporter = nodemailer.createTransport({
 // send mail with defined transport object
 let mailOptions = {
   from: '"Nodemailer contact" < josianne.ullrich@ethereal.email>', // sender address
-  to: "luangu2020@gmail.com",
-  // to: `${req.body.email}`, // list of receivers
+  //to: "luangu2020@gmail.com",
+  to: `${req.body.email}`, // list of receivers
   subject: "Your Recipe", // Subject line
   text: "Here you go", // plain text body
   //html: output // html body
