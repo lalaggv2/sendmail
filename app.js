@@ -77,7 +77,7 @@ transporter.sendMail(mailOptions, (error, info) => {
 
 
 
-app.listen(3001, () => console.log("Server listening on PORT 3030"));
+app.listen(3001, () => console.log("Server listening on PORT 3001"));
 
 
 
